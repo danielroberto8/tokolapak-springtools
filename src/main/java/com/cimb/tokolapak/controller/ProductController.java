@@ -45,7 +45,6 @@ public class ProductController {
 		productService.deleteProduct(id);
 	}
 	
-	
 	@GetMapping("/products/{id}")
 	public Optional<Product> getProductById(@PathVariable() int id) {
 		return productService.getProductById(id);
@@ -55,4 +54,11 @@ public class ProductController {
 	public Product getProductByProductName(@PathVariable() String productName) {
 		return productRepo.findByProductName(productName);
 	}
+	
+	@GetMapping("products/minprice")
+	public Iterable<Product> getProductByMinPrice(){
+		return productRepo.findProductByMinPrice();
+	}
+	
+	
 }
